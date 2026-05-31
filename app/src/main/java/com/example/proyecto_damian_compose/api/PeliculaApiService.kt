@@ -2,6 +2,7 @@ package com.example.proyecto_damian_compose.controller
 
 import com.example.proyecto_damian_compose.api.PeliculaApi
 import retrofit2.http.Body
+import retrofit2.http.DELETE
 import retrofit2.http.GET
 import retrofit2.http.Header
 import retrofit2.http.POST
@@ -23,6 +24,14 @@ interface PeliculaApiService {
     @POST("movies")
     suspend fun agregarPelicula(
         @Header("Authorization") token: String,
-        @Body p: PeliculaApi
+        @Body pelicula: PeliculaApi
     ): PeliculaApi
+
+    @DELETE("movies/{id}")
+    suspend fun borrarPelicula(
+        @Header("Authorization") token: String,
+        @Path("id") id: String
+    )
+
+
 }

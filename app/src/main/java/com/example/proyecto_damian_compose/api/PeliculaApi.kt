@@ -6,6 +6,9 @@ import kotlinx.serialization.Serializable
 @Serializable
 data class PeliculaApi(
 
+    @SerialName("id")
+    val id: String? = null,
+
     @SerialName("title")
     val titulo: String = "",
 
@@ -21,6 +24,6 @@ data class PeliculaApi(
     @SerialName("country")
     val pais: String? = null,
 
-    @SerialName("directorFullName")
+    @SerialName("directorFullname")
     val director: String? = null
 )

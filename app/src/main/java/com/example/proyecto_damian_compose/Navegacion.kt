@@ -5,6 +5,7 @@ import androidx.navigation3.runtime.entryProvider
 import androidx.navigation3.runtime.rememberNavBackStack
 import androidx.navigation3.ui.NavDisplay
 import com.example.proyecto_damian_compose.modelo.DatosDemo
+import com.example.proyecto_damian_compose.pantallas.PantallaAgregarPelicula
 import com.example.proyecto_damian_compose.pantallas.PantallaGaleria
 import com.example.proyecto_damian_compose.pantallas.PantallaLogin
 import com.example.proyecto_damian_compose.pantallas.PantallaPrincipal
@@ -24,8 +25,8 @@ fun Navegacion() {
 
         entry<Principal> {
             PantallaPrincipal(
-                abrirGaleria = {
-                    backStack.add(Galeria(""))
+                abrirAgregarPelicula = {
+                    backStack.add(AgregarPelicula)
                 }
             )
         }
@@ -35,6 +36,14 @@ fun Navegacion() {
             PantallaGaleria(
                 usuario = DatosDemo.usuarios.find{ u -> u.email == it.email}!!,
                 volver = {backStack.removeLastOrNull()}
+            )
+        }
+
+        entry<AgregarPelicula> {
+            PantallaAgregarPelicula(
+                volver = {
+                    backStack.removeLastOrNull()
+                }
             )
         }
 

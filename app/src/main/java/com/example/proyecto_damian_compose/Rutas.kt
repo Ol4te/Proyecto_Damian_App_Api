@@ -12,3 +12,7 @@ data class Principal(val email: String): NavKey
 
 @Serializable
 data class Galeria(val email: String) : NavKey
+
+
+@Serializable
+data object AgregarPelicula : NavKey

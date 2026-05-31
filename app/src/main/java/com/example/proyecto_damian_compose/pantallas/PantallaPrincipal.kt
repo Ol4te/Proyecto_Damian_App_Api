@@ -67,7 +67,7 @@ import com.example.proyecto_damian_compose.controller.RetrofitConfig
 
 
 @Composable
-fun PantallaPrincipal(abrirGaleria: () -> Unit = {}) {
+fun PantallaPrincipal(abrirAgregarPelicula: () -> Unit = {}) {
 
     var peliculas by remember {
         mutableStateOf<List<PeliculaApi>>(emptyList())
@@ -102,7 +102,7 @@ fun PantallaPrincipal(abrirGaleria: () -> Unit = {}) {
         }
     }, floatingActionButton = { //TODO
         FloatingActionButton(
-            onClick = { abrirGaleria() },
+            onClick = {  abrirAgregarPelicula()},
             containerColor = MaterialTheme.colorScheme.primary, shape = RoundedCornerShape(25.dp)
         ) { Icon(Icons.Default.Add, contentDescription = stringResource(R.string.icono_añadir_pelicula), Modifier.size(30.dp)) }
     }
@@ -121,9 +121,41 @@ fun PantallaPrincipal(abrirGaleria: () -> Unit = {}) {
         
                 var accionBorrar = rememberSwipeToDismissBoxState()
 
+                if (
+                    accionBorrar.currentValue == SwipeToDismissBoxValue.EndToStart ||
+                    accionBorrar.currentValue == SwipeToDismissBoxValue.StartToEnd
+                ) {
+
+                    LaunchedEffect(pelicula.id) {
+
+                        pelicula.id?.let { id ->
+
+                            RetrofitConfig.peliculaApiService()
+                                .borrarPelicula(
+                                    Session.token,
+                                    id
+                                )
+
+                            peliculas = peliculas.filter {
+                                it.id != id
+                            }
+                        }
+                    }
+                }
+
                 SwipeToDismissBox(
                     state = accionBorrar,
-                    backgroundContent = {}
+                    backgroundContent = {
+                        Box(
+                            modifier = Modifier.fillMaxSize(),
+                            contentAlignment = Alignment.CenterEnd
+                        ) {
+                            Icon(
+                                Icons.Default.Delete,
+                                contentDescription = null
+                            )
+                        }
+                    }
                 ) {
                     MostrarPelicula(pelicula)
                 }
@@ -134,8 +166,6 @@ fun PantallaPrincipal(abrirGaleria: () -> Unit = {}) {
         }
     }
 }
-
-
 
 
 
