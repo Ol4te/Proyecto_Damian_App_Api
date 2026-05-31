@@ -21,11 +21,15 @@ fun Navegacion() {
 
         }
 
+
         entry<Principal> {
-            val usuario = DatosDemo.usuarios.find { u -> u.email == it.email}
-            usuario?.let {u -> PantallaPrincipal(usuario = u,
-                abrirGaleria = {backStack.add(Galeria(u.email))}) }
+            PantallaPrincipal(
+                abrirGaleria = {
+                    backStack.add(Galeria(""))
+                }
+            )
         }
+
 
         entry<Galeria> {
             PantallaGaleria(

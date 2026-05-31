@@ -1,18 +1,28 @@
 package com.example.proyecto_damian_compose.controller
 
-import com.example.proyecto_damian_compose.modelo.Pelicula
+import com.example.proyecto_damian_compose.api.PeliculaApi
 import retrofit2.http.Body
 import retrofit2.http.GET
+import retrofit2.http.Header
 import retrofit2.http.POST
 import retrofit2.http.Path
 
-interface PeliculaApiService{
+interface PeliculaApiService {
+
     @GET("movies")
-    suspend fun obtenerTodas():List<Pelicula>
+    suspend fun obtenerTodas(
+        @Header("Authorization") token: String
+    ): List<PeliculaApi>
 
     @GET("movies/{id}")
-    suspend fun obtenerPorId(@Path("id") id:String): Pelicula
+    suspend fun obtenerPorId(
+        @Header("Authorization") token: String,
+        @Path("id") id: String
+    ): PeliculaApi
 
     @POST("movies")
-    suspend fun agregarPelicula(@Body p: Pelicula): Pelicula
+    suspend fun agregarPelicula(
+        @Header("Authorization") token: String,
+        @Body p: PeliculaApi
+    ): PeliculaApi
 }

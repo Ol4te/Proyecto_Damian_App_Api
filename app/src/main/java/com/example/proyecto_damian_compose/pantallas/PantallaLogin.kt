@@ -274,12 +274,19 @@ fun PantallaLogin(loginCorrecto: (String) -> Unit = {}) {
 
                                             Session.token = "Bearer $token"
 
+                                            val peliculas =
+                                                RetrofitConfig.peliculaApiService()
+                                                    .obtenerTodas(Session.token)
+                                            Log.d("PELICULAS", peliculas.toString())
+
                                             loginCorrecto(emailField)
+
+
 
                                         }
 
                                     } catch (e: Exception) {
-
+                                        Log.e("PELICULAS", "ERROR", e)
                                         errorLogin = true
 
                                     }
