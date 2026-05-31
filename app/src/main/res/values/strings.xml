@@ -1,0 +1,58 @@
+<resources>
+
+    <!-- Agregar pelicula -->
+    <string name="app_name">Proyecto_Damian_Compose</string>
+    <string name="campo_titulo">Título</string>
+    <string name="campo_director">Director</string>
+    <string name="campo_categoria">Categoría</string>
+    <string name="campo_score_placeholder">Puntuación</string>
+    <string name="boton_agregar">Agregar</string>
+    <string name="imagen_pelicula_desc">Imagen de la película</string>
+    <string name="flecha_volver">Volver</string>
+
+    <!-- PantallaGaleria/Todas las peliculas -->
+    <string name="titulo_galeria">Añadir a tu colección</string>
+    <string name="icono_añadir_pelicula">Añadir película</string>
+    <string name="imagen_pelicula">Imagen de la película</string>
+
+    <!-- PantallaLogin -->
+    <string name="boton_registrarse">Sign up</string>
+    <string name="texto_registrarse">Don\'t have an account?</string>
+    <string name="login_titulo">LOGIN</string>
+    <string name="login_to">TO</string>
+    <string name="login_your_account">YOUR ACCOUNT</string>
+    <string name="campo_email">Email</string>
+    <string name="campo_contrasena">Contraseña</string>
+    <string name="error_datos_incorrectos">Datos Incorrectos</string>
+    <string name="icono_email">Icono email</string>
+    <string name="icono_contrasena">Mostrar/Ocultar contraseña</string>
+    <string name="icono_cerrar_app">Cerrar aplicación</string>
+    <string name="imagen_login_superior">Imagen de fondo login</string>
+    <string name="acceso_rapido">Acceso rápido</string>
+
+    <!-- PantallaRegistro -->
+    <string name="campo_nombre">Nombre</string>
+    <string name="campo_apellido">Apellido</string>
+    <string name="campo_email_registro">Introduce tu email</string>
+    <string name="campo_repetir_password">Repite la contraseña</string>
+    <string name="boton_confirmar">Confirmar</string>
+    <string name="cerrar_registro">Cerrar registro</string>
+    <string name="icono_nombre">Icono nombre</string>
+    <string name="icono_clave">Icono clave</string>
+    <string name="icono_correo">Icono correo</string>
+    <string name="loading_icon_desc">Cargando</string>
+    <string name="error_nombre_invalido">Nombre no válido</string>
+    <string name="error_apellido_invalido">Apellido no válido</string>
+    <string name="error_email_invalido">Email inválido</string>
+    <string name="error_password_corta">Longitud mínima 6 caracteres</string>
+    <string name="error_passwords_no_coinciden">Las contraseñas no coinciden</string>
+
+    <!-- PantallaPrincipal -->
+    <string name="titulo_mis_peliculas">Mis películas</string>
+    <string name="boton_add_pelicula">Añadir película</string>
+    <string name="icono_borrar">Borrar película</string>
+    <string name="imagen_pelicula_card">Imagen de la película</string>
+    <string name="label_genero">Género: </string>
+    <string name="label_director">Director: </string>
+
+</resources>
